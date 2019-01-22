@@ -18,14 +18,14 @@ Please take a look at the other stuff the developers are working on and support 
 <dependency>
 	<groupId>com.thizzer.jtouchbar</groupId>
 	<artifactId>jtouchbar-javafx</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 </dependency>
 ```
 
 #### Gradle
 
 ```gradle
-implementation group: 'com.thizzer.jtouchbar', name: 'jtouchbar-javafx', version: '1.0.0-SNAPSHOT'
+implementation group: 'com.thizzer.jtouchbar', name: 'jtouchbar-javafx', version: '1.0.0'
 ```
 
 #### JavaFX Example
