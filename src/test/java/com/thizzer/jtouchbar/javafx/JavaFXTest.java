@@ -22,34 +22,27 @@ public class JavaFXTest {
 
 	@Test
 	public void test() {
-		new Thread(new Runnable() {
+		// Initializes the JavaFx Platform
+        new JFXPanel();
+        
+        Platform.runLater(new Runnable() {
 
             @Override
             public void run() {
-            	// Initializes the JavaFx Platform
-                new JFXPanel(); 
-                
-                Platform.runLater(new Runnable() {
-
-                    @Override
-                    public void run() {
-                    	try {
-                    		new JavaFXTestApplication().start(new Stage());
-                    	} 
-                        catch (Exception ignored) {
-                        	assertTrue(false);
-                        }
-                    }
-                });
+            		try {
+            			new JavaFXTestApplication().start(new Stage());
+            		} 
+                catch (Exception ignored) {
+                		assertTrue(false);
+                }
             }
-        })
-        .start();
+        });
 		
         try {
 			Thread.sleep(1000);
 		} 
         catch (InterruptedException ignored) {
-        	assertTrue(false);
+        		assertTrue(false);
         }
 	}
 
