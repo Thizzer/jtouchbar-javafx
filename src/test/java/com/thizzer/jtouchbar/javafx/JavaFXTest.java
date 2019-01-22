@@ -12,6 +12,8 @@ package com.thizzer.jtouchbar.javafx;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
+
 import javafx.application.*;
 import javafx.stage.*;
 import javafx.embed.swing.JFXPanel;
@@ -20,6 +22,7 @@ import org.junit.Test;
 
 public class JavaFXTest {
 
+	@Ignore
 	@Test
 	public void test() {
 		// Initializes the JavaFx Platform
