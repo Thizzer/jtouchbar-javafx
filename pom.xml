@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.thizzer.jtouchbar</groupId>
 	<artifactId>jtouchbar-javafx</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>JTouchBar JavaFX</name>
 	<description>
 		Java library adding convenience utils for adding JavaFX support to JTouchBar.
