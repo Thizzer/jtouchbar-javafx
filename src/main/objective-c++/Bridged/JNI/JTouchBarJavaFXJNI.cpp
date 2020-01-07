@@ -13,12 +13,21 @@
 #import <Cocoa/Cocoa.h>
 #import <JavaVM/JavaVM.h>
 
-JNIEXPORT jlong JNICALL Java_com_thizzer_jtouchbar_javafx_JTouchBarJavaFX_getJavaFXViewPointer0(JNIEnv *env, jclass cls, jobject component) {
+jfieldID GetFieldIDSafe(JNIEnv* env, jclass cls, const char* name, const char* sig) {
+    jfieldID fieldId = env->GetFieldID(cls, name, sig);
+    if(env->ExceptionCheck()) {
+        return nullptr;
+    }
+    
+    return fieldId;
+}
+
+JNIEXPORT jlong JNICALL Java_com_thizzer_jtouchbar_javafx_JTouchBarJavaFX_getJavaFXViewPointer0(JNIEnv* env, jclass cls, jobject component) {
     jclass componentClass = env->GetObjectClass(component);
     
-    jfieldID peerField = env->GetFieldID(componentClass, "impl_peer", "Lcom/sun/javafx/tk/TKStage;");
+    jfieldID peerField = GetFieldIDSafe(env, componentClass, "impl_peer", "Lcom/sun/javafx/tk/TKStage;");
     if(peerField == nullptr) {
-        peerField = env->GetFieldID(componentClass, "peer", "Lcom/sun/javafx/tk/TKStage;");
+        peerField = GetFieldIDSafe(env, componentClass, "peer", "Lcom/sun/javafx/tk/TKStage;");
     }
     
     if(peerField == nullptr) {
