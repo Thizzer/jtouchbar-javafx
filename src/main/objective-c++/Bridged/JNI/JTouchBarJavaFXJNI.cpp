@@ -16,6 +16,7 @@
 jfieldID GetFieldIDSafe(JNIEnv* env, jclass cls, const char* name, const char* sig) {
     jfieldID fieldId = env->GetFieldID(cls, name, sig);
     if(env->ExceptionCheck()) {
+        env->ExceptionClear();
         return nullptr;
     }
     
